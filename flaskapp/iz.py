@@ -32,7 +32,7 @@ class NetForm(FlaskForm):
  # валидатор проверяет введение данных после нажатия кнопки submit
  # и указывает пользователю ввести данные если они не введены
  # или неверны
- cho = StringField('1-изменить по вертикали,2-по горизонтали', validators = [DataRequired()])
+ cho = StringField('Введите значение, на которое нужно повысить/понизить яркость изображения (от -255 до 255)', validators = [DataRequired()])
  # поле загрузки файла
  # здесь валидатор укажет ввести правильные файлы
  upload = FileField('Load image', validators=[
@@ -53,7 +53,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-## функция для оброботки изображения 
+## функция для обработки изображения 
 def draw(filename,cho):
  ##открываем изображение 
  print(filename)
@@ -76,23 +76,39 @@ def draw(filename,cho):
 
 
 ##меняем половинки
- if cho==1: 
-  a = img.crop((0, 0, int(y * 0.5), x))
-  b = img.crop((int(y * 0.5), 0, x, y))
-  img.paste(b, (0, 0))
-  img.paste(a, (int(x * 0.5), 0))
+  for i in range(x):
+   		for j in range(y):
+			   a = pix[i, j][0] + cho
+			   b = pix[i, j][1] + cho
+			   c = pix[i, j][2] + cho
+			   if (a < 0):
+				   a = 0
+			   if (b < 0):
+				   b = 0
+			   if (c < 0):
+				   c = 0
+			   if (a > 255):
+				   a = 255
+			   if (b > 255):
+				   b = 255
+			   if (c > 255):
+				   c = 255
   output_filename = filename
   img.save(output_filename)
- else:
-  img=img.rotate(90)
-  a = img.crop((0, 0, int(y * 0.5), x))
-  b = img.crop((int(y * 0.5), 0, x, y))
-  img.paste(b, (0, 0))
-  img.paste(a, (int(y * 0.5), 0))
-  img=img.rotate(270)
-  output_filename = filename
-  img.save(output_filename)
- return output_filename,gr_path
+  
+##делаем график
+ fig1 = plt.figure(figsize=(6, 4))
+ ax = fig1.add_subplot()
+ data = np.random.randint(0, 255, (100, 100))
+ ax.imshow(img, cmap='plasma')
+ b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
+ fig1.colorbar(b, ax=ax)
+ gr_path1 = "./static/newgr1.png"
+ sns.displot(data)
+ #plt.show()
+ plt.savefig(gr_path1)
+ plt.close()
+ return output_filename,gr_path,gr_path1
 
 
 
