@@ -78,8 +78,8 @@ def draw(filename,cho):
 
 ##меняем половинки
  image=ImageEnhance.Brightness(image). enhance(2)			   
-  output_filename = filename
-  image.save(output_filename)
+ output_filename = filename
+ image.save(output_filename)
  return output_filename,gr_path
 
 
