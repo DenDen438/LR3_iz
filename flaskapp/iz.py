@@ -57,7 +57,7 @@ import seaborn as sns
 def draw(filename,cho):
  ##открываем изображение 
  print(filename)
- img= Image.open(filename)
+ image= Image.open(filename)
  draw = ImageDraw.Draw(image) #Создаем инструмент для рисования. 
  x = image.size[0] #Определяем ширину. 
  y = image.size[1] #Определяем высоту. 	
@@ -68,7 +68,7 @@ def draw(filename,cho):
  fig = plt.figure(figsize=(6, 4))
  ax = fig.add_subplot()
  data = np.random.randint(0, 255, (100, 100))
- ax.imshow(img, cmap='plasma')
+ ax.imshow(image, cmap='plasma')
  b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
  fig.colorbar(b, ax=ax)
  gr_path = "./static/newgr.png"
@@ -99,13 +99,13 @@ def draw(filename,cho):
    draw.point((i, j), (a, b, c))
 				   
   output_filename = filename
-  img.save(output_filename)
+  image.save(output_filename)
   
 ##делаем график
  fig1 = plt.figure(figsize=(6, 4))
  ax = fig1.add_subplot()
  data = np.random.randint(0, 255, (100, 100))
- ax.imshow(img, cmap='plasma')
+ ax.imshow(image, cmap='plasma')
  b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
  fig1.colorbar(b, ax=ax)
  gr_path1 = "./static/newgr1.png"
