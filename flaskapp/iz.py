@@ -80,7 +80,7 @@ def draw(filename,cho):
  image=ImageEnhance.Brightness(image). enhance(2)			   
  output_filename = filename
  image.save(output_filename)
- return output_filename,gr_path, gr_path1
+ return output_filename,gr_path
 
 
 
