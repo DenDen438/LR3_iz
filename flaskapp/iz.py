@@ -80,18 +80,6 @@ def draw(filename,cho):
  image=ImageEnhance.Brightness(image). enhance(2)			   
  output_filename = filename
  image.save(output_filename)
- 
- fig1 = plt.figure(figsize=(6, 4))
- ax = fig1.add_subplot()
- data = np.random.randint(0, 255, (100, 100))
- ax.imshow(image, cmap='plasma')
- b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
- fig1.colorbar(b, ax=ax)
- gr_path1 = "./static/newgr1.png"
- sns.displot(data)
- #plt.show()
- plt.savefig(gr_path1)
- plt.close()
  return output_filename,gr_path, gr_path1
 
 
