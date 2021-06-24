@@ -54,7 +54,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 ## функция для обработки изображения 
-def change(filename,cho):
+def draw(filename,cho):
  ##открываем изображение 
  print(filename)
  image= Image.open(filename)
@@ -133,7 +133,7 @@ def net():
   ch=form.cho.data
  
   form.upload.data.save(filename)
-  newfilename,grname = change(filename,ch)
+  newfilename,grname = draw(filename,ch)
  # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
  # сети если был нажат сабмит, либо передадим falsy значения
  
