@@ -80,7 +80,19 @@ def draw(filename,cho):
  image=ImageEnhance.Brightness(image). enhance(2)			   
  output_filename = filename
  image.save(output_filename)
- return output_filename,gr_path
+ 
+ fig1 = plt.figure(figsize=(6, 4))
+ ax = fig1.add_subplot()
+ data = np.random.randint(0, 255, (100, 100))
+ ax.imshow(image, cmap='plasma')
+ b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
+ fig1.colorbar(b, ax=ax)
+ gr_path1 = "./static/newgr1.png"
+ sns.displot(data)
+ #plt.show()
+ plt.savefig(gr_path1)
+ plt.close()
+ return output_filename,gr_path, gr_path1
 
 
 
@@ -100,11 +112,11 @@ def net():
   ch=form.cho.data
  
   form.upload.data.save(filename)
-  newfilename,grname = draw(filename,ch)
+  newfilename,grname,grname1 = draw(filename,ch)
  # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
  # сети если был нажат сабмит, либо передадим falsy значения
  
- return render_template('net.html',form=form,image_name=newfilename,gr_name=grname)
+ return render_template('net.html',form=form,image_name=newfilename,gr_name=grname,gr_name1=grname1)
 
 
 if __name__ == "__main__":
