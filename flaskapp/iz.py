@@ -77,7 +77,7 @@ def draw(filename,cho):
 
 
 ##меняем половинки
- image=ImageEnhance.Brightness(image). enhance(2)			   
+ image=ImageEnhance.Brightness(image).enhance(cho)	   
  output_filename = filename
  image.save(output_filename)
 
