@@ -9,8 +9,12 @@
 <h2>Grafics: </h2> 
 <!-- проверяем есть ли данные классификации -->
 {% if gr_name %}
- <p>{{gr_name}}
- <p><img src={{gr_name}}/>
+ <table border="1" bordercolor="#aaa" cellspacing="0" cellpadding="0">
+ <tr>
+     <td><img style="display:block;" width="100%" height="100%" src="/static/gr_name1.png" /></td>
+     <td><img style="display:block;" width="100%" height="100%" src="/static/img1.jpg" /></td>
+ </tr>
+ </table>
 {% else %}
  <p> There is no image yet </p>
 {% endif %}
