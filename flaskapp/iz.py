@@ -55,13 +55,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 ## функция для обработки изображения 
-def draw(filename,cho):
+def draw(filename,cho, cho1):
  ##открываем изображение 
  print(filename)
  image= Image.open(filename)
  x = image.size[0] #Определяем ширину. 
  y = image.size[1] #Определяем высоту. 	
  cho=int(cho)
+ cho1=int(cho1)
  
  ##делаем график
  fig = plt.figure(figsize=(6, 4))
@@ -70,19 +71,44 @@ def draw(filename,cho):
  ax.imshow(image, cmap='plasma')
  b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
  fig.colorbar(b, ax=ax)
- gr_path = "./static/newgr.png"
  sns.displot(data)
  #plt.show()
- plt.savefig(gr_path)
+ plt.savefig("./static/newgr.png")
  plt.close()
 
 
-##меняем половинки
- image=ImageEnhance.Brightness(image).enhance(cho)	   
+##меняем яркость
+ image1=ImageEnhance.Brightness(image).enhance(cho)	   
+ image1.save("./static/img1.png")
+ image2=ImageEnhance.Contrast(image).enhance(cho1)	  
+ image2.save("./static/img2.png")
+ 
+ fig = plt.figure(figsize=(6, 4))
+ ax = fig.add_subplot()
+ data = np.random.randint(0, 255, (100, 100))
+ ax.imshow(image1, cmap='plasma')
+ b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
+ fig.colorbar(b, ax=ax)
+ sns.displot(data)
+ #plt.show()
+ plt.savefig("./static/newgr1.png")
+ plt.close()
+ 
+ fig = plt.figure(figsize=(6, 4))
+ ax = fig.add_subplot()
+ data = np.random.randint(0, 255, (100, 100))
+ ax.imshow(image2, cmap='plasma')
+ b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
+ fig.colorbar(b, ax=ax)
+ sns.displot(data)
+ #plt.show()
+ plt.savefig("./static/newgr2.png")
+ plt.close()
+ 
  output_filename = filename
  image.save(output_filename)
-
- return output_filename,gr_path
+ 
+ return output_filename
 
 
 
@@ -100,9 +126,10 @@ def net():
   # файлы с изображениями читаются из каталога static
   filename = os.path.join('./static', secure_filename(form.upload.data.filename))
   ch=form.cho.data
+  ch1=form.cho1.data
  
   form.upload.data.save(filename)
-  newfilename,grname = draw(filename,ch)
+  newfilename = draw(filename,ch, ch1)
  # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
  # сети если был нажат сабмит, либо передадим falsy значения
  
