@@ -70,7 +70,7 @@ def draw(filename,cho, cho1):
  data = np.random.randint(0, 255, (100, 100))
  ax.imshow(image, cmap='plasma')
  b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
- fig.colorbar(orientation='horizontal', b, ax=ax)
+ fig.colorbar(b, ax=ax, orientation='horizontal')
  sns.displot(data)
  plt.savefig("./static/newgr.png")
  plt.close()
