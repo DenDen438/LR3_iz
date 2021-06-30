@@ -8,21 +8,17 @@
 <!-- один из стандартных тэгов html - заголовок второго уровня -->
 <h2>Table: </h2> 
 <!-- проверяем есть ли данные классификации -->
-{% if gr_name %}
- <table border="1" bordercolor="#aaa" cellspacing="0" cellpadding="0">
- <tr>
-     <td><img style="display:block;" width="100%" height="100%" src="/static/img1.jpg" /></td>
-     <td><img style="display:block;" width="100%" height="100%" src="/static/img1.png" /></td>
-     <td><img style="display:block;" width="100%" height="100%" src="/static/img2.png" /></td>
-     <td><img style="display:block;" width="100%" height="100%" src="/static/newgr.png" /></td>
-     <td><img style="display:block;" width="100%" height="100%" src="/static/newgrv.png" /></td>
-     <td><img style="display:block;" width="100%" height="100%" src="/static/newgr1.png" /></td>
-     <td><img style="display:block;" width="100%" height="100%" src="/static/newgrv1.png" /></td>
-     <td><img style="display:block;" width="100%" height="100%" src="/static/newgr2.png" /></td>
-     <td><img style="display:block;" width="100%" height="100%" src="/static/newgrv2.png" /></td>
- </tr>
- </table>
-{% else %}
- <p> There is no image yet </p>
-{% endif %}
+<table border="1" bordercolor="#aaa" cellspacing="0" cellpadding="0">
+<tr>
+    <td><img style="display:block;" width="100%" height="100%" src="/static/img1.jpg" /></td>
+    <td><img style="display:block;" width="100%" height="100%" src="/static/img1.png" /></td>
+    <td><img style="display:block;" width="100%" height="100%" src="/static/img2.png" /></td>
+    <td><img style="display:block;" width="100%" height="100%" src="/static/newgr.png" /></td>
+    <td><img style="display:block;" width="100%" height="100%" src="/static/newgrv.png" /></td>
+    <td><img style="display:block;" width="100%" height="100%" src="/static/newgr1.png" /></td>
+    <td><img style="display:block;" width="100%" height="100%" src="/static/newgrv1.png" /></td>
+    <td><img style="display:block;" width="100%" height="100%" src="/static/newgr2.png" /></td>
+    <td><img style="display:block;" width="100%" height="100%" src="/static/newgrv2.png" /></td>
+</tr>
+</table>
 {% endblock %}
