@@ -97,18 +97,6 @@ def draw(filename,cho, cho1):
  sns.displot(data)
  plt.savefig("./static/newgrv1.png")
  plt.close()
-
- ax.imshow(image2, cmap='plasma')
- b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
- fig.colorbar(b, ax=ax, orientation='horizontal')
- sns.displot(data)
- plt.savefig("./static/newgr2.png")
- plt.close()
- 
- fig.colorbar(b, ax=ax, orientation='vertical')
- sns.displot(data)
- plt.savefig("./static/newgrv2.png")
- plt.close()
  
  output_filename = filename
  image.save(output_filename)
