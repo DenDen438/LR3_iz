@@ -75,7 +75,7 @@ def draw(filename,cho, cho1):
  plt.savefig("./static/newgr.png")
  plt.close()
 
- fig.colorbar(orientation='vertical', b, ax=ax)
+ fig.colorbar(b, ax=ax, orientation='vertical')
  sns.displot(data)
  plt.savefig("./static/newgrv.png")
  plt.close()
