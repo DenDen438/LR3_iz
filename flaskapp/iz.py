@@ -88,24 +88,24 @@ def draw(filename,cho, cho1):
  
  ax.imshow(image1, cmap='plasma')
  b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
- fig.colorbar(orientation='horizontal', b, ax=ax)
+ fig.colorbar(b, ax=ax, orientation='horizontal')
  sns.displot(data)
  plt.savefig("./static/newgr1.png")
  plt.close()
  
- fig.colorbar(orientation='vertical', b, ax=ax)
+ fig.colorbar(b, ax=ax, orientation='vertical')
  sns.displot(data)
  plt.savefig("./static/newgrv1.png")
  plt.close()
 
  ax.imshow(image2, cmap='plasma')
  b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
- fig.colorbar(orientation='horizontal', b, ax=ax)
+ fig.colorbar(b, ax=ax, orientation='horizontal')
  sns.displot(data)
  plt.savefig("./static/newgr2.png")
  plt.close()
  
- fig.colorbar(orientation='horizontal', b, ax=ax)
+ fig.colorbar(b, ax=ax, orientation='vertical')
  sns.displot(data)
  plt.savefig("./static/newgrv2.png")
  plt.close()
