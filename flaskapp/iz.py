@@ -86,18 +86,6 @@ def draw(filename,cho, cho1):
  image2=ImageEnhance.Contrast(image).enhance(cho1)	  
  image2.save("./static/img2.png")
  
- ax.imshow(image1, cmap='plasma')
- b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
- fig.colorbar(b, ax=ax, orientation='horizontal')
- sns.displot(data)
- plt.savefig("./static/newgr1.png")
- plt.close()
- 
- fig.colorbar(b, ax=ax, orientation='vertical')
- sns.displot(data)
- plt.savefig("./static/newgrv1.png")
- plt.close()
- 
  output_filename = filename
  image.save(output_filename)
  
