@@ -63,17 +63,6 @@ def draw(filename,cho, cho1):
  y = image.size[1] #Определяем высоту. 	
  cho=int(cho)
  cho1=int(cho1)
- 
- ##делаем график
- fig = plt.figure(figsize=(6, 4))
- ax = fig.add_subplot()
- data = np.random.randint(0, 255, (100, 100))
- ax.imshow(image, cmap='plasma')
- b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
- fig.colorbar(b, ax=ax, orientation='horizontal')
- sns.displot(data)
- plt.savefig("./static/newgr.png")
- plt.close()
 
 ##меняем яркость
  image1=ImageEnhance.Brightness(image).enhance(cho)	   
